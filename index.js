@@ -1,9 +1,9 @@
-const Discord = require("discord.js");
-const Natural = require("natural");
-const Intersect = require("intersect");
+const Discord = require('discord.js');
+const Natural = require('natural');
+const Intersect = require('intersect');
+const http = require('http')
 const client = new Discord.Client();
 
-var tokenizer = new Natural.WordPunctTokenizer();
 
 positivityPhrases = [
   'You can do it!',
@@ -33,6 +33,11 @@ sadWords = [ 'sad',
   'wahh',
 ]
 
+function handler(req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('Positivity!');
+};
+
 function positivity() {
   var item = positivityPhrases[
     Math.floor(Math.random() * positivityPhrases.length)
@@ -40,6 +45,9 @@ function positivity() {
   return item;
 }
 
+
+var server = http.createServer(handler);
+var tokenizer = new Natural.WordPunctTokenizer();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
@@ -62,3 +70,4 @@ client.on('message', msg => {
 });
 
 client.login(process.env['DISCORD_TOKEN']);
+server.listen(process.env['PORT']);
