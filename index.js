@@ -19,7 +19,9 @@ positivityPhrases = [
   'The day is what you make it! So why not make it a great one?',
   'Write it on your heart that every day is the best day in the year.',
   'The greatest discovery of all time is that a person can change his future by merely changing his attitude.',
-  'Don\t worry, be happy!',
+  'Don\'t worry, be happy!',
+  'https://68.media.tumblr.com/6f0b60ba44155768fcdf56a141573575/tumblr_olvsxgJXPv1qg6rkio1_1280.jpg',
+  'https://68.media.tumblr.com/5428b6e3b79856c22d7cb3006e5131ee/tumblr_olv7l4ZLTI1raw55uo1_540.jpg',
 ];
 
 sadWords = [ 'sad',
@@ -47,9 +49,12 @@ function positivity() {
   return item;
 }
 
+var sentimentThreshold = parseFloat(process.env['SENTIMENT_THRESHOLD']) * -1;
 var server = http.createServer(handler);
 var tokenizer = new Natural.WordPunctTokenizer();
 
+
+console.log('Using sentimentThreshold: ' + sentimentThreshold)
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
@@ -96,7 +101,15 @@ client.on('message', msg => {
       if (err) {
         return console.error(err);
       }
-      if (body.label == 'neg') {
+
+      if (process.env.DEBUG == 'true') {
+        console.log(msg.content);
+        console.log(body);
+      }
+
+      var probabilityDiff = body.probability.pos - body.probability.neg;
+      console.log("Comparing(sentimentThreshold: " + sentimentThreshold + "): " + probabilityDiff);
+      if (probabilityDiff <= sentimentThreshold) {
         msg.reply(positivity());
       }
   });
