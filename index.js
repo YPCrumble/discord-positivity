@@ -22,8 +22,6 @@ positivityPhrases = [
   'https://68.media.tumblr.com/5428b6e3b79856c22d7cb3006e5131ee/tumblr_olv7l4ZLTI1raw55uo1_540.jpg',
 ];
 
-
-
 sadWords = [ 'sad',
   '😦',
   ':(',
