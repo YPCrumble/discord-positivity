@@ -1,4 +1,5 @@
 Positivity Bot for Discord
+========
 
 ## Summary
 A Discord bot that listens for "sad" words and responds with positivity!
