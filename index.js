@@ -99,7 +99,7 @@ client.on('message', msg => {
         console.log(msg.content);
         console.log(body);
       }
-      if (body.label == 'neg') {
+      if (body.probability.pos - body.probability.neg <= -0.1) {
         msg.reply(positivity());
       }
   });
