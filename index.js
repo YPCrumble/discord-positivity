@@ -105,7 +105,7 @@ client.on('message', msg => {
 
       var probabilityDiff = body.probability.pos - body.probability.pos;
       console.log("Comparing(sentimentThreshold: " + sentimentThreshold + "): " + probabilityDiff);
-      if (body.probability.pos - body.probability.neg <= sentimentThreshold) {
+      if (probabilityDiff <= sentimentThreshold) {
         msg.reply(positivity());
       }
   });
