@@ -10,7 +10,8 @@ positivityPhrases = [
   'Hang in there!',
   'Tomorrow is a brand new day!',
   'It\'s ok, I get nervous sometimes too!',
-  'Reach for the stars! - Akaya Kimuryu', 'If Donald Trump could do it, you can too!',
+  'Reach for the stars! - Akaya Kimuryu',
+  'If Donald Trump could do it, you can too!',
   'At least your mom thinks your cool!',
   'Cheer up, buttercup!',
   'Turn that frown upside down!',
@@ -18,6 +19,7 @@ positivityPhrases = [
   'The day is what you make it! So why not make it a great one?',
   'Write it on your heart that every day is the best day in the year.',
   'The greatest discovery of all time is that a person can change his future by merely changing his attitude.',
+  'Don\t worry, be happy!',
 ];
 
 sadWords = [ 'sad',
