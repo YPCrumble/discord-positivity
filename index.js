@@ -45,10 +45,12 @@ function positivity() {
   return item;
 }
 
-var sentimentThreshod = parseFloat(process.env['SENTIMENT_THRESHOLD']) * -1;
+var sentimentThreshold = parseFloat(process.env['SENTIMENT_THRESHOLD']) * -1;
 var server = http.createServer(handler);
 var tokenizer = new Natural.WordPunctTokenizer();
 
+
+console.log('Using sentimentThreshold: ' + sentimentThreshold)
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
 });
@@ -100,7 +102,7 @@ client.on('message', msg => {
         console.log(msg.content);
         console.log(body);
       }
-      if (body.probability.pos - body.probability.neg <= sentimentThreshod) {
+      if (body.probability.pos - body.probability.neg <= sentimentThreshold) {
         msg.reply(positivity());
       }
   });
