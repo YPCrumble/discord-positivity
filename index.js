@@ -94,6 +94,11 @@ client.on('message', msg => {
       if (err) {
         return console.error(err);
       }
+
+      if (process.env.DEBUG == 'true') {
+        console.log(msg.content);
+        console.log(body);
+      }
       if (body.label == 'neg') {
         msg.reply(positivity());
       }
