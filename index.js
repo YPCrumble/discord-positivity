@@ -18,7 +18,11 @@ positivityPhrases = [
   'The day is what you make it! So why not make it a great one?',
   'Write it on your heart that every day is the best day in the year.',
   'The greatest discovery of all time is that a person can change his future by merely changing his attitude.',
+  'https://68.media.tumblr.com/6f0b60ba44155768fcdf56a141573575/tumblr_olvsxgJXPv1qg6rkio1_1280.jpg',
+  'https://68.media.tumblr.com/5428b6e3b79856c22d7cb3006e5131ee/tumblr_olv7l4ZLTI1raw55uo1_540.jpg',
 ];
+
+
 
 sadWords = [ 'sad',
   '😦',
